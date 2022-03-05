@@ -9,7 +9,7 @@
 # Requirement
 
 - Python 3.x
-- data process with TNT without no `ttags` and no `taxname`, such as [winclada.run](https://raw.githubusercontent.com/starsareintherose/TNT_Script/main/winclada.run)
+- data process with TNT with no `ttags` and no `taxname`, such as [winclada.run](https://raw.githubusercontent.com/starsareintherose/TNT_Script/main/winclada.run)
 
 # Usage
 ```
