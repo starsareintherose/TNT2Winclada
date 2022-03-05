@@ -1,0 +1,49 @@
+#!/usr/bin/python
+
+import sys
+import re
+
+options = sys.argv
+
+# http://www.network-science.de/ascii/ ogre
+print ("""
+ _____    __  _____ ____  __    __ _            _           _       
+/__   \/\ \ \/__   \___ \/ / /\ \ (_)_ __   ___| | __ _  __| | __ _ 
+  / /\/  \/ /  / /\/ __) \ \/  \/ / | '_ \ / __| |/ _` |/ _` |/ _` |
+ / / / /\  /  / /   / __/ \  /\  /| | | | | (__| | (_| | (_| | (_| |
+ \/  \_\ \/   \/   |_____| \/  \/ |_|_| |_|\___|_|\__,_|\__,_|\__,_|
+                    tnt2winclada version 0.0.1
+                  Guoyi Zhang (2022) MIT License
+            tnt2winclada -i input_file -o output_file
+        """)
+
+# options
+for opt in range(len(options)):
+    if options[opt] == "-i":
+        file_input = options[opt + 1]
+        try:
+            file = open(file_input)
+        except IOError:
+            print ("File \"" + file_input + "\" not found!")
+            sys.exit(0)
+    elif options[opt] == "-o":
+        file_output = options[opt +1]
+
+# process
+## open the file
+with open(file_input,'r',encoding='utf-8') as f:
+  trestrori = f.read()
+## split based on the numer
+trestrpro = re.split('(\d+)', trestrori)
+## to let numer minus one
+trestrint = map(lambda n: str(int(n)-1) if n[0].isnumeric() else n, trestrpro)
+## reorg the string
+trestrout = "".join(trestrint)
+
+# write file
+fo = open(file_output, "w")
+fo.write("tread\n")
+fo.write("'tree from tnt2winclada'\n")
+fo.write(trestrout)
+fo.write("proc-;")
+fo.close()
